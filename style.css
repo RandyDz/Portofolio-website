@@ -1,0 +1,470 @@
+body {
+  margin: 0;
+  line-height: inherit;
+  padding-top: 80px; /* sesuaikan tinggi navbar */
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.navbar {
+  height:80px;
+  background-color: rgb(255, 255, 255);
+}
+.custom-navbar {
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  min-height: 72px;
+}
+
+.custom-navbar.scrolled {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  
+}
+.nav-link {
+  color: #000000;
+  transition: color 0.3s ease;
+}
+
+.nav-link.active {
+  color: rgb(0, 128, 128);
+  font-weight: 600;
+}
+.nav-link:hover {
+  color: rgb(0, 128, 128);
+}
+
+.btn-custom {
+  background-color: rgb(0, 128, 128);
+  color: white;
+  font-weight: 700;
+  border: none;
+  border-radius: 0.75rem;
+}
+
+.btn-custom-cv {
+  color: rgb(0, 128, 128);
+  border: 2px solid rgb(0, 128, 128);
+  background-color: white;
+  font-weight: 700;
+  border-radius: 0.75rem;
+}
+
+
+@media (max-width: 992px) {
+  .offcanvas.offcanvas-start,
+  .offcanvas.offcanvas-end {
+    width: 100vw; /* 100% lebar viewport */
+  }
+
+.offcanvas-body {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-bottom: 2rem;
+  }
+}
+
+#hero {
+  margin-top: 100px;
+}
+
+.font-name {
+  color: rgb(0, 128, 128);
+  font-weight: 700;
+}
+
+.description-hero {
+  color: rgb(99, 99, 99);
+}
+
+.avatar {
+  width: 500px;
+  /* padding-left: 200px; */
+}
+
+.image-hero {
+  display: flex; /* Untuk menengahkan gambar jika perlu */
+  justify-content: center;
+  align-items: center;
+  padding: 2rem; /* Memberi ruang agar bentuk terlihat */
+}
+
+.hero-desc{
+  padding: 10px;
+}
+
+.about-container{
+  color: white;
+}
+
+.about-desc{
+  padding: 10px;
+  margin-top: 30px;
+}
+
+.about-section {
+  background-color: rgb(0, 128, 128);
+  padding: 80px 0;
+  color: #ffffff;
+}
+
+.about-img {
+  width: 280px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.about-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.about-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  max-width: 620px;
+  opacity: 0.95;
+}
+.tools-section {
+  padding: 80px 0;
+  text-align: center;
+  background-image: radial-gradient(rgba(9, 138, 152, 0.4) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.tools-wrapper {
+  
+  padding: 32px 24px;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.tool-icon {
+  width: 70px;
+  filter: grayscale(100%);
+  opacity: 0.7;
+  transition: all 0.3s ease;
+}
+
+.tool-icon:hover {
+  filter: grayscale(0%);
+  opacity: 1;
+  transform: translateY(-6px) scale(1.1);
+  filter: grayscale(0%) drop-shadow(0 8px 12px rgba(0,0,0,0.2));
+}
+
+.tools-wrapper {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1.2s ease;
+
+}
+
+.tools-wrapper.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-icons {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+  
+.contact-item {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  background: white;
+  color: rgb(0, 128, 128);
+  transform: translateY(-6px);
+}
+
+
+/* Container untuk satu baris item timeline */
+        .timeline-item {
+            display: flex; /* Membuat Tanggal, Garis, dan Konten sejajar horizontal */
+            padding-bottom: 3rem; /* Jarak antar item ke bawah */
+        }
+
+        /* 1. Bagian Tanggal (Kiri) */
+        .timeline-date {
+            width: 150px; /* Lebar tetap agar rapi */
+            text-align: right;
+            padding-right: 20px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            flex-shrink: 0; /* Mencegah tanggal mengecil */
+        }
+
+        /* 2. Bagian Garis & Titik (Tengah) */
+        .timeline-marker {
+            position: relative;
+            width: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Garis Vertikal */
+        .timeline-marker::before {
+            content: '';
+            position: absolute;
+            top: 5px; /* Mulai sedikit dari atas */
+            bottom: -3rem; /* Menarik garis sampai ke item berikutnya */
+            width: 2px;
+            background-color: #ffffff; /* Warna garis */
+        }
+        
+        /* Agar garis item terakhir tidak memanjang ke bawah (Opsional) */
+        .timeline-item:last-child .timeline-marker::before {
+            display: none; /* Atau atur height: 100% jika ingin berhenti pas di titik */
+        }
+
+        /* Titik Bulat (Dot) */
+        .timeline-dot {
+            width: 16px;
+            height: 16px;
+            background-color: #e0e7ff; /* Warna isi lingkaran (sesuai contoh dikit) */
+            border: 2px solid #000; /* Garis pinggir lingkaran */
+            border-radius: 50%;
+            z-index: 2; /* Agar titik berada di atas garis */
+            position: relative;
+        }
+
+        /* 3. Bagian Konten (Kanan) */
+        .timeline-content {
+            flex-grow: 1; /* Mengambil sisa ruang yang ada */
+            padding-left: 20px;
+        }
+
+        .timeline-content h5 {
+            margin-top: -4px; /* Sedikit menaikkan judul agar sejajar lurus dengan titik */
+            font-weight: bold;
+        }
+
+        /* RESPONSIF (Tampilan HP) */
+        @media (max-width: 768px) {
+            .timeline-item {
+                flex-direction: column; /* Tumpuk ke bawah saat di HP */
+                position: relative;
+                padding-left: 30px;
+            }
+            .timeline-date {
+                text-align: left;
+                width: 100%;
+                margin-bottom: 5px;
+            }
+            .timeline-marker {
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 100%;
+            }
+            .timeline-marker::before {
+                bottom: 0;
+            }
+        }
+.timeline-content p {
+  color: #ECECEC;
+}
+
+.container-experience{
+  background-color: rgb(0, 128, 128);
+  color: white;
+  padding-top: 1px;
+}
+
+.experience-header{
+ margin-top: 40px;
+}
+
+.subtitle p {
+  color: rgb(229, 231, 235);
+}
+
+
+
+
+.feature-text h5 {
+  font-weight: bold;
+  margin-bottom: 0;
+}
+
+.feature-text .experience-date {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7); /* Warna tanggal sedikit pudar */
+  display: block;
+  margin-bottom: 10px;
+}
+
+.feature-text ul {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.projects-section {
+  padding: 80px 0;
+  background: #f8f9fa;
+}
+
+.section-title {
+  font-size: 2.6rem;
+  font-weight: 700;
+}
+
+.section-subtitle {
+  margin-top: 10px;
+  margin-bottom: 50px;
+  color: #6c757d;
+}
+
+/* GRID */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px;
+}
+
+/* CARD */
+.project-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+}
+
+.project-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* CONTENT */
+.project-content {
+  padding: 24px;
+}
+
+.project-content h4 {
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+}
+
+.project-content p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* TOOLS */
+.project-tools {
+  margin-top: 16px;
+}
+
+.project-tools span {
+  display: inline-block;
+  background: #eef2f7;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  margin: 4px 6px 0 0;
+}
+
+/* LINKS */
+.project-links {
+  margin-top: 20px;
+}
+
+.project-links a {
+  margin-right: 16px;
+  text-decoration: none;
+  font-weight: 600;
+  color: rgb(0,128,128);
+}
+
+.project-links a:hover {
+  text-decoration: underline;
+}
+
+
+/* Penyesuaian untuk Mobile */
+@media (max-width: 991px) { /* 991px adalah breakpoint 'lg' Bootstrap */
+  .image-wrapper {
+    margin-top: 2.5rem; /* Beri jarak atas pada gambar saat di mobile */
+  }
+
+  .feature-section {
+    padding: 2rem 1rem; /* Perkecil padding di mobile */
+  }
+}
+
+/* Hanya berlaku untuk layar kecil (mobile) */
+@media (max-width: 768px) {
+  .btn-custom-cv {
+    display: block;
+    margin-top: 12px !important; /* Atur jarak sesuai keinginan Anda */
+  }
+  .image-hero {
+    overflow-x: hidden;
+  }
+
+  .about-pic {
+    overflow-x: hidden;
+  }
+}
+
+@media (max-width: 992px) {
+  .btn-custom-cv {
+    display: block;
+    margin-top: 12px !important; /* Atur jarak sesuai keinginan Anda */
+  }
+}
+
+@media (max-width: 768px) {
+  .tools-wrapper {
+    justify-content: center;
+    gap: 24px;
+  }
+
+  .tool-icon {
+    width: 40px;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-item {
+    width: 52px;
+    height: 52px;
+    font-size: 1.4rem;
+  }
+}
+

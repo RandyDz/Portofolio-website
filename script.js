@@ -48,7 +48,7 @@ const navLinks = document.querySelectorAll('.nav-link');
         });
       },
       {
-        threshold: 0.6
+        threshold: 0.3
       }
     );
 

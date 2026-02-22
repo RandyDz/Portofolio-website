@@ -6,7 +6,10 @@ body {
 html {
   scroll-behavior: smooth;
 }
-
+img {
+  max-width: 100%;
+  height: auto;
+}
 .navbar {
   height:80px;
   background-color: rgb(255, 255, 255);
@@ -36,13 +39,34 @@ html {
 .nav-link:hover {
   color: rgb(0, 128, 128);
 }
+.button {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+.button a {
+  display: inline-block;
+  text-align: center;
+  min-width: 180px;
+}
 
+@media (max-width: 768px) {
+  .button {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .button a {
+    width: auto; 
+  }
+}
 .btn-custom {
   background-color: rgb(0, 128, 128);
   color: white;
   font-weight: 700;
   border: none;
   border-radius: 0.75rem;
+  text-decoration: none;
 }
 
 .btn-custom-cv {
@@ -51,13 +75,14 @@ html {
   background-color: white;
   font-weight: 700;
   border-radius: 0.75rem;
+  text-decoration: none;
 }
 
 
 @media (max-width: 992px) {
   .offcanvas.offcanvas-start,
   .offcanvas.offcanvas-end {
-    width: 100vw; /* 100% lebar viewport */
+    width: 100%; 
   }
 
 .offcanvas-body {
@@ -83,14 +108,13 @@ html {
 
 .avatar {
   width: 500px;
-  /* padding-left: 200px; */
 }
 
 .image-hero {
-  display: flex; /* Untuk menengahkan gambar jika perlu */
+  display: flex; 
   justify-content: center;
   align-items: center;
-  padding: 2rem; /* Memberi ruang agar bentuk terlihat */
+  padding: 2rem; 
 }
 
 .hero-desc{
@@ -201,93 +225,75 @@ html {
   color: rgb(0, 128, 128);
   transform: translateY(-6px);
 }
-
-
-/* Container untuk satu baris item timeline */
-        .timeline-item {
-            display: flex; /* Membuat Tanggal, Garis, dan Konten sejajar horizontal */
-            padding-bottom: 3rem; /* Jarak antar item ke bawah */
-        }
-
-        /* 1. Bagian Tanggal (Kiri) */
-        .timeline-date {
-            width: 150px; /* Lebar tetap agar rapi */
-            text-align: right;
-            padding-right: 20px;
-            font-weight: bold;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            flex-shrink: 0; /* Mencegah tanggal mengecil */
-        }
-
-        /* 2. Bagian Garis & Titik (Tengah) */
-        .timeline-marker {
-            position: relative;
-            width: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* Garis Vertikal */
-        .timeline-marker::before {
-            content: '';
-            position: absolute;
-            top: 5px; /* Mulai sedikit dari atas */
-            bottom: -3rem; /* Menarik garis sampai ke item berikutnya */
-            width: 2px;
-            background-color: #ffffff; /* Warna garis */
-        }
-        
-        /* Agar garis item terakhir tidak memanjang ke bawah (Opsional) */
-        .timeline-item:last-child .timeline-marker::before {
-            display: none; /* Atau atur height: 100% jika ingin berhenti pas di titik */
-        }
-
-        /* Titik Bulat (Dot) */
-        .timeline-dot {
-            width: 16px;
-            height: 16px;
-            background-color: #e0e7ff; /* Warna isi lingkaran (sesuai contoh dikit) */
-            border: 2px solid #000; /* Garis pinggir lingkaran */
-            border-radius: 50%;
-            z-index: 2; /* Agar titik berada di atas garis */
-            position: relative;
-        }
-
-        /* 3. Bagian Konten (Kanan) */
-        .timeline-content {
-            flex-grow: 1; /* Mengambil sisa ruang yang ada */
-            padding-left: 20px;
-        }
-
-        .timeline-content h5 {
-            margin-top: -4px; /* Sedikit menaikkan judul agar sejajar lurus dengan titik */
-            font-weight: bold;
-        }
-
-        /* RESPONSIF (Tampilan HP) */
-        @media (max-width: 768px) {
-            .timeline-item {
-                flex-direction: column; /* Tumpuk ke bawah saat di HP */
-                position: relative;
-                padding-left: 30px;
-            }
-            .timeline-date {
-                text-align: left;
-                width: 100%;
-                margin-bottom: 5px;
-            }
-            .timeline-marker {
-                position: absolute;
-                left: 0;
-                top: 0;
-                height: 100%;
-            }
-            .timeline-marker::before {
-                bottom: 0;
-            }
-        }
+.timeline-item {
+  display: flex; 
+  padding-bottom: 3rem; 
+}
+.timeline-date {
+  width: 150px; 
+  text-align: right;
+  padding-right: 20px;
+  font-weight: bold;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  flex-shrink: 0; 
+}
+.timeline-marker {
+  position: relative;
+  width: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.timeline-marker::before {
+  content: '';
+  position: absolute;
+  top: 5px; 
+  bottom: -3rem;
+  width: 2px;
+  background-color: #ffffff; 
+}
+.timeline-item:last-child .timeline-marker::before {
+  display: none;
+}
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  background-color: #e0e7ff; 
+  border: 2px solid #000; 
+  border-radius: 50%;
+  z-index: 2;
+  position: relative;
+}
+.timeline-content {
+  flex-grow: 1; 
+  padding-left: 20px;
+}
+.timeline-content h5 {
+  margin-top: -4px; 
+  font-weight: bold;
+}
+@media (max-width: 768px) {
+  .timeline-item {
+    flex-direction: column; 
+    position: relative;
+    padding-left: 30px;
+  }
+  .timeline-date {
+      text-align: left;
+      width: 100%;
+      margin-bottom: 5px;
+  }
+  .timeline-marker {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+  }
+  .timeline-marker::before {
+      bottom: 0;
+  }
+}
 .timeline-content p {
   color: #ECECEC;
 }
@@ -316,7 +322,7 @@ html {
 
 .feature-text .experience-date {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7); /* Warna tanggal sedikit pudar */
+  color: rgba(255, 255, 255, 0.7); 
   display: block;
   margin-bottom: 10px;
 }
@@ -325,7 +331,11 @@ html {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.9);
 }
-
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 .projects-section {
   padding: 80px 0;
   background: #f8f9fa;
@@ -345,7 +355,6 @@ html {
 /* GRID */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 32px;
 }
 
@@ -385,7 +394,7 @@ html {
   color: #555;
 }
 
-/* TOOLS */
+
 .project-tools {
   margin-top: 16px;
 }
@@ -402,6 +411,7 @@ html {
 /* LINKS */
 .project-links {
   margin-top: 20px;
+  word-wrap: break-word;
 }
 
 .project-links a {
@@ -409,6 +419,8 @@ html {
   text-decoration: none;
   font-weight: 600;
   color: rgb(0,128,128);
+  display: inline-block;
+  margin-bottom: 8px;  
 }
 
 .project-links a:hover {
@@ -446,11 +458,10 @@ html {
 .certificates-grid {
   margin-top: 50px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 32px;
 }
 
-/* CARD */
+
 .certificate-card {
   background: white;
   border-radius: 18px;
@@ -464,14 +475,12 @@ html {
   box-shadow: 0 18px 40px rgba(0,0,0,0.25);
 }
 
-/* IMAGE */
 .certificate-card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
 }
 
-/* CONTENT */
 .certificate-content {
   padding: 20px;
 }
@@ -514,22 +523,82 @@ html {
   transform: translateY(-4px);
   box-shadow: 0 12px 28px rgba(0,0,0,0.2);
 }
-/* Penyesuaian untuk Mobile */
-@media (max-width: 991px) { /* 991px adalah breakpoint 'lg' Bootstrap */
+.footer-modern {
+  background-color: #f5f5f5;
+  padding: 100px 0 60px;
+  
+}
+
+.footer-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: rgb(0, 128, 128);
+  margin-bottom: 30px;
+}
+
+.footer-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.footer-menu li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.footer-menu li a:hover {
+  color: rgb(0, 128, 128);
+}
+
+.footer-social {
+  margin-bottom: 30px;
+}
+
+.footer-social p {
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.footer-social a {
+  font-size: 1.3rem;
+  margin: 0 12px;
+  color: #555;
+  transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+  color: rgb(0, 128, 128);
+  transform: translateY(-4px);
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: #999;
+}
+
+@media (max-width: 991px) {
   .image-wrapper {
-    margin-top: 2.5rem; /* Beri jarak atas pada gambar saat di mobile */
+    margin-top: 2.5rem; 
   }
 
   .feature-section {
-    padding: 2rem 1rem; /* Perkecil padding di mobile */
+    padding: 2rem 1rem; 
   }
 }
 
-/* Hanya berlaku untuk layar kecil (mobile) */
+
 @media (max-width: 768px) {
   .btn-custom-cv {
-    display: block;
-    margin-top: 12px !important; /* Atur jarak sesuai keinginan Anda */
+    display: inline-block;
+    margin-top: 12px !important; 
   }
   .image-hero {
     overflow-x: hidden;
@@ -542,8 +611,8 @@ html {
 
 @media (max-width: 992px) {
   .btn-custom-cv {
-    display: block;
-    margin-top: 12px !important; /* Atur jarak sesuai keinginan Anda */
+    display: inline-block;
+    margin-top: 12px !important; 
   }
 }
 
@@ -566,3 +635,68 @@ html {
   }
 }
 
+
+@media (max-width: 767px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+  }
+
+  .projects-grid .project-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: 400px;
+  }
+}
+
+
+@media (min-width: 1025px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .certificates-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .certificates-grid {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+  }
+
+  /* Jika card terakhir sendirian → center */
+  .certificates-grid .certificate-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: 60%;
+  }
+}
+
+
+@media (min-width: 1025px) {
+  .certificates-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-menu {
+    gap: 18px;
+  }
+
+  .footer-logo {
+    font-size: 1.6rem;
+  }
+}

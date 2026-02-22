@@ -28,7 +28,7 @@ const navbar = document.querySelector('.custom-navbar');
     }
   });
 
-const sections = document.querySelectorAll('section');
+const sections = document.querySelectorAll('section,footer');
 const navLinks = document.querySelectorAll('.nav-link');
 
   if (sections.length && navLinks.length) {
